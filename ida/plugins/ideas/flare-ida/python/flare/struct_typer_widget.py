@@ -1,0 +1,61 @@
+# -*- coding: utf-8 -*-
+from PyQt5 import QtCore, QtWidgets
+
+class Ui_Dialog(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(502, 364)
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(Dialog)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.verticalLayout = QtWidgets.QVBoxLayout()
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.rb_useStackFrame = QtWidgets.QRadioButton(Dialog)
+        self.rb_useStackFrame.setObjectName("rb_useStackFrame")
+        self.buttonGroup = QtWidgets.QButtonGroup(Dialog)
+        self.buttonGroup.setObjectName("buttonGroup")
+        self.buttonGroup.addButton(self.rb_useStackFrame)
+        self.verticalLayout.addWidget(self.rb_useStackFrame)
+        self.rb_useStruct = QtWidgets.QRadioButton(Dialog)
+        self.rb_useStruct.setChecked(True)
+        self.rb_useStruct.setObjectName("rb_useStruct")
+        self.buttonGroup.addButton(self.rb_useStruct)
+        self.verticalLayout.addWidget(self.rb_useStruct)
+        self.listWidget = QtWidgets.QListWidget(Dialog)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.listWidget.sizePolicy().hasHeightForWidth())
+        self.listWidget.setSizePolicy(sizePolicy)
+        self.listWidget.setObjectName("listWidget")
+        self.verticalLayout.addWidget(self.listWidget)
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.checkBox = QtWidgets.QCheckBox(Dialog)
+        self.checkBox.setObjectName("checkBox")
+        self.horizontalLayout.addWidget(self.checkBox)
+        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem)
+        self.lineEdit = QtWidgets.QLineEdit(Dialog)
+        self.lineEdit.setObjectName("lineEdit")
+        self.horizontalLayout.addWidget(self.lineEdit)
+        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.verticalLayout_2.addLayout(self.verticalLayout)
+        self.buttonBox = QtWidgets.QDialogButtonBox(Dialog)
+        self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
+        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
+        self.buttonBox.setObjectName("buttonBox")
+        self.verticalLayout_2.addWidget(self.buttonBox)
+
+        self.retranslateUi(Dialog)
+
+        self.buttonBox.accepted.connect(Dialog.accept)
+        self.buttonBox.rejected.connect(Dialog.reject)
+
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        Dialog.setWindowTitle(QtWidgets.QApplication.translate("Dialog", "StructTyper", None))
+        self.rb_useStackFrame.setText(QtWidgets.QApplication.translate("Dialog", "Current Stack Frame", None))
+        self.rb_useStruct.setText(QtWidgets.QApplication.translate("Dialog", "Structure", None))
+        self.checkBox.setText(QtWidgets.QApplication.translate("Dialog", "Prefix RegEx", None))
+
